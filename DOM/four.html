@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mini Practice Project</title>
+</head>
+
+<body style="background-color: #212121;color: #fff">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+
+</body>
+<script>
+    function addLanguages(langName) {
+        const ul = document.querySelector('.language')
+        const list = document.createElement('li')
+        list.className = 'list';
+        list.parentElement = ul;
+        const text = document.createTextNode(langName);
+        list.appendChild(text);
+        ul.appendChild(list)
+        console.log(list);
+    }
+    addLanguages("java");
+    addLanguages("python");
+    addLanguages("c++");
+
+    // ->    edit 
+
+    const secondLang = document.querySelector("li:nth-child(2)");
+    const list = document.createElement('li');
+    list.textContent = "Mojo";
+    secondLang.replaceWith(list);
+    const firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = '<li>TypeScript</li>';
+
+
+    //remove
+
+    const last = document.querySelector("li:last-child");
+    last.remove()
+
+</script>
+
+</html>
