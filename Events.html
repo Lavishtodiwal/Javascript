@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul id="images">
+            <li id="forest">
+                <img src="https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg" alt="Forest" width="200">
+            </li>
+            <li id="beach">
+                <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg" alt="Beach" width="200">
+            </li>
+            <li id="city">
+                <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="City" width="200">
+            </li>
+            <li id="mountains">
+                <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" alt="Mountains" width="200">
+            </li>
+            <li id="dog">
+                <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg" alt="Dog" width="200">
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('images').addEventListener('click', (e) => {
+            // console.log(e);
+            alert("images clicked");
+        }, true)
+        document.getElementById('forest').addEventListener('click', (e) => {
+            e.stopPropagation(); //means to override the top to botom and bottom to top 
+            alert("forest clicked");
+        }, true)
+
+        //ye third attribute is ---> Event Propagation (event bubbling)
+        // by default false means Capturing Phase (Top → Down) ->The event starts from the root(document) and goes downwards to the target element.
+
+        // true -> Bubbling Phase (Down → Up)==> The event then bubbles back up from the target to the root.
+    </script>
+</body>
+
+</html>
