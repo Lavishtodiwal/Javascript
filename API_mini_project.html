@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request using ajax project</title>
+    <style>
+        body {
+            background-color: #141414;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #head {
+            height: 22px;
+            width: 200px;
+            color: white;
+            /* border: none; */
+            border-radius: 5px;
+            box-shadow: rgb(19, 0, 0)5px 5px 30px 1px;
+            background-color: rgb(19, 0, 0);
+        }
+
+        #btn {}
+
+        #card {
+            height: 300px;
+            width: 550px;
+            /* border: 2px solid white; */
+            border-radius: 20px;
+            box-shadow: rgb(19, 0, 0)5px 5px 30px 1px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        #image {
+            /* border: 2px solid red; */
+            box-shadow: rgb(50, 0, 0) 1px 1px 10px 1px;
+            border-radius: 50%;
+            height: 180px;
+            width: 180px;
+
+        }
+
+        #info {
+            /* border: 2px solid red; */
+            box-shadow: rgb(19, 0, 0) 5px 5px 30px 1px;
+            border-radius: 20px;
+            height: 180px;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #info p {
+            margin: 5px 0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="main">
+        <form action="">
+            <label for="urll">Get Your Card :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input id="head" type="text"
+                name="urll" placeholder="Enter your Github username">
+            <button type="submit" id="btn">Get</button>
+        </form>
+        <div id="card">
+            <div id="image"></div>
+            <div id="info">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const url = "https://api.github.com/users/";
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const head = document.querySelector("#head").value;
+            const actualUrl = url + head;
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', actualUrl);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    const data = JSON.parse(this.responseText);
+
+                    const infos = document.querySelector('#info');
+                    const img = document.querySelector('#image');
+
+                    infos.innerHTML = ` 
+                <p>ID : ${data.id}</p>
+                <p>Name : ${data.name}</p>
+                <p>Total Followers : ${data.followers}</p>
+                <p>Total Repositories : ${data.public_repos}</p>
+            `;
+
+                    img.style.backgroundImage = `url(${data.avatar_url})`;
+                    img.style.backgroundSize = "cover";
+                    img.style.backgroundPosition = "center";
+                }
+            }
+
+            xhr.send();
+        });
+    </script>
+</body>
+
+</html>
