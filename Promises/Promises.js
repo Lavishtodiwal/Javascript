@@ -140,23 +140,23 @@ consumePromiseFive();
 
 // ------------------- Fetch using async/await ---------------------
 
-// async function getAllUsers() {
-//   try {
-//     // fetch returns a promise
-//     const response = await fetch("https://jsonplaceholder.typicode.com/users");
+async function getAllUsers() {
+  try {
+    // fetch returns a promise
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
-//     // response.json() also returns a promise
-//     const data = await response.json();
+    // response.json() also returns a promise
+    const data = await response.json();
 
-//     // final data
-//     console.log(data);
+    // final data
+    console.log(data);
 
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-// getAllUsers();
+getAllUsers();
 
 
 
