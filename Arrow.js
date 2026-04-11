@@ -21,18 +21,18 @@ user.username = "vira";
 
 // chai();
 
-// const chai = () => {
-//   let username = "lokkey";
-//   console.log(this.username);
-// };
-// chai();
-// --------------------Arrow functions------------------------------
+const chai = () => {
+  let username = "lokkey";
+  console.log(this.username);
+};
+chai();
+--------------------Arrow functions------------------------------
 
-// const addTwo = (num1, num2) => {
-//   console.log(num1 + num2);
-// };
+const addTwo = (num1, num2) => {
+  console.log(num1 + num2);
+};
 
-// addTwo(10,20)
+addTwo(10,20)
 
 const addTwo = (num1, num2) => console.log(num1 + num2);
 const addTwo1 = (num1, num2) => num1 + num2; //also work as a return statement
