@@ -26,11 +26,11 @@ const chai = () => {
   console.log(this.username);
 };
 chai();
---------------------Arrow functions------------------------------
+// --------------------Arrow functions------------------------------
 
-const addTwo = (num1, num2) => {
-  console.log(num1 + num2);
-};
+// const addTwo = (num1, num2) => {
+//   console.log(num1 + num2);
+// };
 
 addTwo(10,20)
 
