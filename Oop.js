@@ -10,7 +10,7 @@ const user = {
 };
 
 console.log(user.username);
-// console.log(user.getUserDetails());
+console.log(user.getUserDetails());
 console.log(this); //returns the empty opject
 
 function User(username, loginCount, signedIn) {
